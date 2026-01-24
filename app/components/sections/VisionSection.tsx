@@ -17,14 +17,14 @@ export default function VisionSection() {
   return (
     <section id="vision" className="min-h-screen flex items-center justify-center py-32 px-8 bg-sandy-yellow">
       <div className=" max-w-8xl w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-center relative z-10 lg:p-16">
-        <div className="max-w-2xl w-full gap-4 md:gap-6">
+        <div className="max-w-2xl w-full">
           <h2 className="text-4xl lg:text-5xl font-cowboy text-maroon mb-8">
             A story about pioneering women, funded by pioneering women.
           </h2>
-          <p className="text-black">
+          <p className="text-black mb-4">
             Funded by an international collective of female investors.
           </p>
-          <p className="text-black">
+          <p className="text-black mb-4">
             With the first stage complete, we are armed with a stellar script, production plan and an{" "}
             <SwHighlightLink onAnimationComplete={handleHighlightComplete}>
               original soundtrack by Grammy award-winning Rhiannon Giddens (ft. artist in Beyonce&apos;s Texas Hold &apos;Em).
