@@ -10,25 +10,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --maroon: #800020;
+  --maroon-dark: #2B0607;
+  --sandy-yellow: #F4A460;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-maroon: var(--maroon);
+  --color-maroon-dark: var(--maroon-dark);
+  --color-sandy-yellow: var(--sandy-yellow);
+  --font-sans: var(--font-space-mono);
   --font-cowboy: 'Cowboy Outlaw', cursive;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-mono), 'Courier New', monospace;
+}
+
+button {
+  cursor: pointer;
 }
