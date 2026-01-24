@@ -30,7 +30,7 @@ export default function InvestmentSection() {
             <cite className="text-xs text-black/50 uppercase tracking-widest">— Calamity Jane</cite>
           </blockquote>
         </div>
-        <div className="max-w-6xl w-full grid md:grid-cols-2 lg:grid-cols-3 gap-0 items-center">
+        <div className="max-w-6xl w-full md:grid md:grid-cols-2 lg:grid-cols-3 gap-0 items-center">
         {/* Image */}
         <div className="col-span-1">
           <Image
@@ -43,7 +43,7 @@ export default function InvestmentSection() {
         </div>
 
         {/* Content */}
-        <div className="col-span-2 p-8 md:p-16 flex flex-col justify-center max-w-3xl ml-auto">
+        <div className="col-span-2 py-8 md:p-16 flex flex-col justify-center max-w-3xl ml-auto">
           {/* Summary */}
           <p className="text-black mb-8 leading-relaxed">
           Spaghetti Western is already one-third funded — and ready to be greenlit. We’re inviting a small group of pioneering women to join us in pushing it across the line and helping redefine how films are funded and made.

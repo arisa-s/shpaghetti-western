@@ -16,9 +16,9 @@ export default function VisionSection() {
 
   return (
     <section id="vision" className="min-h-screen flex items-center justify-center py-32 px-8 bg-sandy-yellow">
-      <div className=" max-w-8xl w-full flex flex-col md:flex-row gap-8 md:gap-16 items-center relative z-10 p-8 md:p-16">
+      <div className=" max-w-8xl w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-center relative z-10 lg:p-16">
         <div className="max-w-2xl w-full">
-          <h2 className="text-4xl md:text-5xl font-cowboy text-maroon mb-8">
+          <h2 className="text-4xl lg:text-5xl font-cowboy text-maroon mb-8">
             A story about pioneering women, funded by pioneering women.
           </h2>
           <p className="text-black">
@@ -37,13 +37,13 @@ export default function VisionSection() {
           {/* CTA to full Vision page */}
           <Link
             href="/vision"
-            className="inline-block bg-black text-white uppercase tracking-widest text-xs md:text-sm px-6 py-3 hover:bg-maroon/80 transition-colors"
+            className="inline-block bg-black text-white uppercase tracking-widest text-xs lg:text-sm px-6 py-3 hover:bg-maroon/80 transition-colors"
           >
             Read more
           </Link>
           {/* Hand-drawn arrow animation */}
           <div 
-            className={`hidden md:block w-36 h-40 mt-4 transition-opacity duration-500 ml-auto  mr-24 ${
+            className={`hidden lg:block w-36 h-40 mt-4 transition-opacity duration-500 ml-auto  mr-24 ${
               showArrow ? "opacity-100" : "opacity-0"
             }`}
             style={{ transform: "scaleX(-1) rotate(-420deg)" }}

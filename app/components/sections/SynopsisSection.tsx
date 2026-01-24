@@ -16,7 +16,7 @@ export default function SynopsisSection() {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="flex flex-col md:flex-row justify-center relative z-10 p-8 md:p-16 w-full mt-auto">
+      <div className="flex flex-col md:flex-row justify-center relative z-10 gap-12 md:p-16 w-full mt-auto">
         <h2 className="text-4xl md:text-5xl lg:text-9xl font-cowboy text-white mb-8 text-center drop-shadow-2xl">
           Synopsis
         </h2>
