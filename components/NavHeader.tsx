@@ -46,7 +46,7 @@ export default function NavHeader() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Define navigation items (all route to sections on the homepage)
+  // Define navigation items
   const navItems: NavItem[] = [
     { id: "synopsis", label: "Synopsis" },
     { id: "vision", label: "Vision" },
@@ -55,6 +55,12 @@ export default function NavHeader() {
     { id: "press", label: "Press" },
     { id: "contact", label: "Contact" },
   ];
+
+  // Define which sections have dedicated pages (only vision and investment)
+  const pagesMap: Record<string, string> = {
+    vision: "/vision",
+    investment: "/investment",
+  };
 
   // Check if we're on homepage to determine nav visibility behavior
   const isHomePage = pathname === "/";
@@ -90,19 +96,26 @@ export default function NavHeader() {
   }, [pathname]);
 
   const handleNavigation = (sectionId: string) => {
+    const dedicatedPage = pagesMap[sectionId];
+
     // Close mobile menu
     setIsMobileMenuOpen(false);
 
-    if (isHomePage) {
-      // If on homepage, smoothly scroll to the section
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    // If dedicated page exists, always route to it
+    if (dedicatedPage) {
+      router.push(dedicatedPage);
     } else {
-      // If not on homepage, navigate to homepage with hash;
-      // a separate effect handles scrolling once loaded.
-      router.push(`/#${sectionId}`);
+      // If no dedicated page exists
+      if (isHomePage) {
+        // If on homepage, scroll to section
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // If not on homepage, navigate to homepage with hash
+        router.push(`/#${sectionId}`);
+      }
     }
   };
 
@@ -135,6 +148,7 @@ export default function NavHeader() {
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-8 py-3">
         <div className="flex items-center justify-between">
+          <div className="md:hidden w-6"></div>
           {/* Logo - only show when scrolled or not on homepage */}
           {!isInHeroSection && (
             <button
