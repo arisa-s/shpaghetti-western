@@ -24,7 +24,7 @@ export default function InvestmentSection() {
 
           {/* Quote */}
           <blockquote className="border-l-4 border-maroon pl-4 mb-12">
-            <p className="text-lg md:text-xl text-black mb-2">
+            <p className="font-medium sm:text-lg md:text-xl text-black mb-2">
               &ldquo;I figure if a girl wants to be a legend, she should just go ahead and be one.&rdquo;
             </p>
             <cite className="text-xs text-black/50 uppercase tracking-widest">— Calamity Jane</cite>
@@ -45,7 +45,7 @@ export default function InvestmentSection() {
         {/* Content */}
         <div className="col-span-2 py-8 md:p-16 flex flex-col justify-center max-w-3xl ml-auto">
           {/* Summary */}
-          <p className="text-black mb-8 leading-relaxed">
+          <p className="text-justify text-sm sm:text-base text-black mb-8 leading-relaxed">
           Spaghetti Western is already one-third funded — and ready to be greenlit. We’re inviting a small group of pioneering women to join us in pushing it across the line and helping redefine how films are funded and made.
 <br/><br/>
 As an investor, you’ll get a front-row seat to the creative and production process, become part of an intimate community of women shaping this film from the inside, and help blaze a new trail for feminist storytelling in cinema.

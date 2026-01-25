@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Lottie from "lottie-react";
 import SwHighlightLink from "@/components/SwHighlightLink";
@@ -9,16 +9,50 @@ import arrowAnimation from "@/public/lottie/arrow.json";
 
 export default function VisionSection() {
   const [showArrow, setShowArrow] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const handleHighlightComplete = () => {
     setShowArrow(true);
   };
 
+  // Use Intersection Observer to detect when section enters viewport
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            // Show arrow after a short delay when section is visible
+            setTimeout(() => {
+              setShowArrow(true);
+            }, 500);
+          } else {
+            // Reset when section leaves viewport so it can replay
+            setIsInView(false);
+            setShowArrow(false);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of section is visible
+        rootMargin: "0px",
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="vision" className="min-h-screen flex items-center justify-center py-32 px-8 bg-sandy-yellow">
+    <section ref={sectionRef} id="vision" className="min-h-screen flex items-center justify-center py-32 px-8 bg-sandy-yellow">
       <div className=" max-w-8xl w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-center relative z-10 lg:p-16">
-        <div className="max-w-2xl w-full">
-          <h2 className="text-4xl lg:text-5xl font-cowboy text-maroon mb-8">
+        <div className="text-sm sm:text-base max-w-2xl w-full">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-cowboy text-maroon mb-8">
             A story about pioneering women, funded by pioneering women.
           </h2>
           <p className="text-black mb-4">
@@ -37,9 +71,9 @@ export default function VisionSection() {
           {/* CTA to full Vision page */}
           <Link
             href="/vision"
-            className="inline-block bg-black text-white uppercase tracking-widest text-xs lg:text-sm px-6 py-3 hover:bg-maroon/80 transition-colors"
+            className="inline-block  underline uppercase hover:text-maroon transition-colors font-bold"
           >
-            Read more
+            Read more about our vision
           </Link>
           {/* Hand-drawn arrow animation */}
           <div 
@@ -50,6 +84,7 @@ export default function VisionSection() {
           >
             {showArrow && (
               <Lottie
+                key={isInView ? "visible" : "hidden"}
                 animationData={arrowAnimation}
                 loop={false}
                 autoplay={true}

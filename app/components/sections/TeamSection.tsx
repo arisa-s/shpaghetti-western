@@ -55,73 +55,81 @@ export default function TeamSection() {
   return (
     <section
       id="team"
-      className="min-h-screen flex items-center justify-center py-24 px-8 bg-maroon"
+      className="min-h-screen flex items-center justify-center py-12 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 bg-maroon"
     >
       <div className="max-w-6xl w-full">
-        <SectionTitle className="mb-24 text-sandy-yellow">Team</SectionTitle>
+        <SectionTitle className="mb-12 sm:mb-24 text-sandy-yellow">Team</SectionTitle>
 
         {/* Team Grid */}
-        <div className="grid gap-6 md:gap-12 lg:gap-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-2 sm:gap-6 md:gap-12 lg:gap-16 grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member) => (
-            <button
-              key={member.name}
-              onClick={() => setActiveMember(member)}
-              className="group aspect-square border-2 border-black bg-white px-6 md:mx-8 lg:mx-12 py-6 text-left flex flex-col justify-between hover:bg-black hover:text-white transition-colors"
-            >
-              <div>
+            <div key={member.name} className="aspect-square w-full">
+              <button
+                onClick={() => setActiveMember(member)}
+                className="group w-full h-full border border-black bg-white px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-6 text-left flex flex-col justify-between hover:bg-black hover:text-white transition-colors overflow-hidden"
+              >
+              <div className="flex-1 min-h-0 flex flex-col items-center justify-center">
                 {member.imageSrc ? (
-                  <div className="mb-4 flex justify-center">
+                  <div className="mb-2 sm:mb-3 md:mb-4 flex justify-center flex-shrink-0">
                     <Image
                       src={member.imageSrc}
                       alt={member.name}
                       width={96}
                       height={96}
-                      className="w-40 h-40 object-cover border border-black/40"
+                      className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-cover border border-black/40 rounded-full"
                     />
                   </div>
-                ): (<div className="mb-4 flex justify-center">
-                  <div className="w-40 h-40 bg-gray-200"></div>
-                </div>)}
-                <p className="text-xs uppercase tracking-widest text-black/60 group-hover:text-white/70">
+                ): (
+                  <div className="mb-2 sm:mb-3 md:mb-4 flex justify-center flex-shrink-0">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-200 rounded-full"></div>
+                  </div>
+                )}
+                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-black/60 group-hover:text-white/70 text-center px-1 line-clamp-2">
                   {member.role}
                 </p>
-                <h3 className="mt-3 text-xl font-cowboy tracking-tight">
+                <h3 className="mt-1 sm:mt-2 text-sm sm:text-base md:text-lg font-cowboy tracking-tight text-center line-clamp-2">
                   {member.name}
                 </h3>
               </div>
-              <p className="mt-4 text-xs text-black/60 group-hover:text-white/80">
+              <p className="mt-auto text-[10px] sm:text-xs text-black/60 group-hover:text-white/80 text-center flex-shrink-0">
                 Tap to read bio
               </p>
-            </button>
+              </button>
+            </div>
           ))}
         </div>
 
         {/* Modal with glassmorphic effect */}
         {activeMember && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md p-4"
             onClick={() => setActiveMember(null)}
           >
             <div
-              className="max-w-2xl mx-4 bg-white/80 border border-black/20 shadow-2xl p-8 md:p-10 relative"
+              className="max-w-2xl w-full max-h-[90vh] bg-white/80 border border-black/20 shadow-2xl relative flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close button - fixed position */}
               <button
                 onClick={() => setActiveMember(null)}
-                className="absolute top-3 right-3 text-black/60 hover:text-black"
+                className="absolute top-3 right-3 z-10 text-black/60 hover:text-black bg-white/80 rounded-full w-8 h-8 flex items-center justify-center"
                 aria-label="Close"
               >
                 ✕
               </button>
-              <p className="text-xs uppercase tracking-widest text-black/60 mb-2">
-                {activeMember.role}
-              </p>
-              <h3 className="text-2xl md:text-3xl font-cowboy text-black mb-4">
-                {activeMember.name}
-              </h3>
-              <p className="text-sm md:text-base leading-relaxed whitespace-pre-line text-black">
-                {activeMember.description}
-              </p>
+              
+              {/* Scrollable content */}
+              <div className="overflow-y-auto p-6 md:p-10">
+                <p className="text-xs uppercase tracking-widest text-black/60 mb-2">
+                  {activeMember.role}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-cowboy text-black mb-4">
+                  {activeMember.name}
+                </h3>
+                <p className="text-sm md:text-base leading-relaxed whitespace-pre-line text-black">
+                  {activeMember.description}
+                </p>
+              </div>
             </div>
           </div>
         )}
