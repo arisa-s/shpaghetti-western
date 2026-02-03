@@ -37,16 +37,15 @@ export default function PressSection() {
     >
       {/* Background newspaper texture */}
       <Image
-        src="/10.jpg"
+        src="/ugly/stolenimage5.png"
         alt=""
         fill
         className="object-cover object-center"
-        quality={90}
       />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl w-full">
-        <h2 className="text-4xl md:text-5xl font-cowboy text-black mb-16 text-center">
+        <h2 className="text-4xl md:text-5xl font-cormorant font-bold text-green-superlight mb-16 text-center">
           Press
         </h2>
         <SwPressCarousel items={pressItems} />
@@ -54,4 +53,3 @@ export default function PressSection() {
     </section>
   );
 }
-

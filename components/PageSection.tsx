@@ -12,7 +12,7 @@ export default function PageSection({
   return (
     <section className={`space-y-4 ${className}`}>
       {title && (
-        <h2 className="text-xl font-cowboy tracking-wide text-black">
+        <h2 className="text-xl font-cormorant font-bold tracking-wide text-black">
           {title}
         </h2>
       )}
@@ -22,5 +22,3 @@ export default function PageSection({
     </section>
   );
 }
-
-

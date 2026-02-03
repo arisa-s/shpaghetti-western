@@ -7,18 +7,23 @@ import PressSection from "./components/sections/PressSection";
 import VisionSection from "./components/sections/VisionSection";
 import ContactSection from "./components/sections/ContactSection";
 
-
 export default function Home() {
   return (
     <div className="bg-white">
       <NavHeader />
       <HeroSection />
-      <SynopsisSection />
-      <VisionSection />
-      <InvestmentSection />
-      <TeamSection />
-      <PressSection  />
-      <ContactSection />
+      {/* Content scrolls over the fixed hero; overlay ignores pointer in spacer area so hero button works */}
+      <div className="relative z-10 pointer-events-none">
+        <div className="min-h-screen" aria-hidden />
+        <div className="pointer-events-auto">
+          <SynopsisSection />
+          <VisionSection />
+          <InvestmentSection />
+          <TeamSection />
+          <PressSection />
+          <ContactSection />
+        </div>
+      </div>
     </div>
   );
 }

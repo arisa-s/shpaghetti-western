@@ -7,12 +7,71 @@
   font-style: normal;
 }
 
+/* SF Pro Display */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYHEAVYITALIC.OTF') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYBLACKITALIC.OTF') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --maroon: #800020;
   --maroon-dark: #2B0607;
   --sandy-yellow: #F4A460;
+  --deep-green: #171a09;
+  --green-light: #a28e89;
+  --green-superlight: #a49f85;
 }
 
 @theme inline {
@@ -21,14 +80,19 @@
   --color-maroon: var(--maroon);
   --color-maroon-dark: var(--maroon-dark);
   --color-sandy-yellow: var(--sandy-yellow);
+  --color-deep-green: var(--deep-green);
+  --color-green-light: var(--green-light);
+  --color-green-superlight: var(--green-superlight);
   --font-sans: var(--font-space-mono);
   --font-cowboy: 'Cowboy Outlaw', cursive;
+  --font-cormorant: var(--font-cormorant-garamond);
+  --font-sf: 'SF Pro Display', system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-space-mono), 'Courier New', monospace;
+  font-family: var(--font-sf), 'Courier New', monospace;
 }
 
 button {

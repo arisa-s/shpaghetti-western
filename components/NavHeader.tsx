@@ -12,17 +12,22 @@ interface NavLinkProps {
 
 // Helper function to get text color classes based on hero section state
 function getTextColorClasses(isInHeroSection: boolean): string {
-  return isInHeroSection 
-    ? "text-white hover:text-white/80" 
+  return isInHeroSection
+    ? "text-white hover:text-white/80"
     : "text-gray-700 hover:text-gray-900";
 }
 
-function NavLink({ label, onClick, isInHeroSection, isMobile = false }: NavLinkProps) {
+function NavLink({
+  label,
+  onClick,
+  isInHeroSection,
+  isMobile = false,
+}: NavLinkProps) {
   const baseClasses = "transition-colors";
   const colorClasses = getTextColorClasses(isInHeroSection);
-  
-  const sizeClasses = isMobile 
-    ? "block w-full text-left py-2 text-sm uppercase " 
+
+  const sizeClasses = isMobile
+    ? "block w-full text-left py-2 text-sm uppercase "
     : "text-xs lg:text-sm uppercase ";
 
   return (
@@ -64,7 +69,7 @@ export default function NavHeader() {
 
   // Check if we're on homepage to determine nav visibility behavior
   const isHomePage = pathname === "/";
-  
+
   // Determine if we're in the hero section (homepage and not scrolled)
   const isInHeroSection = isHomePage && !scrolled;
 
@@ -141,8 +146,8 @@ export default function NavHeader() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300  ${
-        isInHeroSection 
-          ? "bg-white/10 border-b border-white/20" 
+        isInHeroSection
+          ? "bg-white/10 border-b border-white/20"
           : "bg-white/80 border-b border-gray-200"
       }`}
     >
@@ -153,17 +158,19 @@ export default function NavHeader() {
           {!isInHeroSection && (
             <button
               onClick={handleLogoClick}
-              className="text-lg md:text-xl font-cowboy text-gray-900 hover:text-gray-700 transition-colors uppercase"
+              className="text-lg md:text-xl font-cormorant font-bold text-gray-900 hover:text-gray-700 transition-colors uppercase"
             >
               Spaghetti Western
             </button>
           )}
-          
+
           {/* Spacer when logo is hidden to keep nav centered */}
           {isInHeroSection && <div />}
 
           {/* Desktop Navigation */}
-          <ul className={`hidden md:flex gap-4 lg:gap-6 items-center ${isInHeroSection ? "mx-auto" : ""}`}>
+          <ul
+            className={`hidden md:flex gap-4 lg:gap-6 items-center ${isInHeroSection ? "mx-auto" : ""}`}
+          >
             {navItems.map((item) => (
               <li key={item.id}>
                 <NavLink
@@ -218,4 +225,3 @@ export default function NavHeader() {
     </header>
   );
 }
-

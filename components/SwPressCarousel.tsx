@@ -75,12 +75,12 @@ export default function SwPressCarousel({ items }: SwPressCarouselProps) {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full max-w-md aspect-square bg-white/10 border border-black backdrop-blur-md shadow-lg p-6 md:p-8 hover:bg-white/20 transition-colors group"
+                className="block w-full max-w-md aspect-square bg-white/60 border border-black backdrop-blur-md shadow-lg p-6 md:p-8 hover:bg-white/20 transition-colors group"
               >
                 <div className="h-full flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-cowboy text-black mb-4 group-hover:text-maroon transition-colors">
-                     &ldquo;{item.title}&rdquo;
+                    <h3 className="text-xl md:text-2xl font-cormorant text-black mb-4 group-hover:text-maroon transition-colors">
+                      &ldquo;{item.title}&rdquo;
                     </h3>
                   </div>
                   <div className="mt-auto">
@@ -105,8 +105,18 @@ export default function SwPressCarousel({ items }: SwPressCarouselProps) {
         className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 hover:bg-maroon transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Previous slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
       <button
@@ -115,8 +125,18 @@ export default function SwPressCarousel({ items }: SwPressCarouselProps) {
         className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 hover:bg-maroon transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Next slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
         </svg>
       </button>
 
@@ -138,4 +158,3 @@ export default function SwPressCarousel({ items }: SwPressCarouselProps) {
     </div>
   );
 }
-
