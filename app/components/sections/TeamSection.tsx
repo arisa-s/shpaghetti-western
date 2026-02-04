@@ -39,7 +39,7 @@ const otherTeamMembers: TeamMember[] = [
     name: "Rhiannon Giddens",
     imageSrc: "/team/T2 (Picture of Rhiannon Giddens).png",
     description:
-      "Rhiannon Giddens has made a singular, iconic career out of stretching her brand of folk music—with its miles‑deep historical roots and contemporary sensibilities—into just about every field imaginable. A two‑time GRAMMY Award and Pulitzer Prize‑winning singer and instrumentalist, MacArthur \"Genius\" grant recipient, and composer of opera, ballet, and film, Giddens has centered her work around the mission of lifting up people whose contributions to American musical history have previously been overlooked or erased, and advocating for a more accurate understanding of the country's musical origins through art.\n\nAs Pitchfork once said, \"few artists are so fearless and so ravenous in their exploration\"—a journey that has led to NPR naming her one of its 25 Most Influential Women Musicians of the 21st Century and to American Songwriter calling her \"one of the most important musical minds currently walking the planet.\"",
+      'Rhiannon Giddens has made a singular, iconic career out of stretching her brand of folk music—with its miles‑deep historical roots and contemporary sensibilities—into just about every field imaginable. A two‑time GRAMMY Award and Pulitzer Prize‑winning singer and instrumentalist, MacArthur "Genius" grant recipient, and composer of opera, ballet, and film, Giddens has centered her work around the mission of lifting up people whose contributions to American musical history have previously been overlooked or erased, and advocating for a more accurate understanding of the country\'s musical origins through art.\n\nAs Pitchfork once said, "few artists are so fearless and so ravenous in their exploration"—a journey that has led to NPR naming her one of its 25 Most Influential Women Musicians of the 21st Century and to American Songwriter calling her "one of the most important musical minds currently walking the planet."',
   },
   {
     role: "Associate Producer",
@@ -57,7 +57,7 @@ export default function TeamSection() {
   return (
     <section
       id="team"
-      className="min-h-screen flex items-center justify-center py-12 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 bg-sandy-yellow"
+      className="relative min-h-screen flex items-center justify-center py-12 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 bg-sandy-yellow"
     >
       <div className="max-w-5xl w-full">
         <SectionTitle className="mb-10 sm:mb-16 text-maroon">Team</SectionTitle>

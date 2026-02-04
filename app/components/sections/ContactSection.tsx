@@ -1,4 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ContactSection() {
@@ -11,6 +12,15 @@ export default function ContactSection() {
         <SectionTitle className="mb-12 text-green-superlight">
           Contact
         </SectionTitle>
+
+        <Image
+          src="/ugly/stolenimage1.png"
+          alt=""
+          width={1920}
+          height={1080}
+          className="object-contain object-center w-full max-w-lg mx-auto mb-6 md:mb-12"
+        />
+
         <div className="space-y-6 text-center">
           {/* Email */}
           <div>
