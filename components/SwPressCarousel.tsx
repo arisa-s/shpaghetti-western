@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface PressItem {
   title: string;
@@ -68,16 +69,24 @@ export default function SwPressCarousel({ items }: SwPressCarouselProps) {
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex justify-center px-2 md:px-4"
+              className=" flex justify-center px-2 md:px-4"
               style={{ minWidth: `${slideWidth}%` }}
             >
               <Link
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full max-w-md aspect-square bg-white/60 border border-black backdrop-blur-md shadow-lg p-6 md:p-8 hover:bg-white/20 transition-colors group"
+                className="relative block w-full max-w-md aspect-square bg-white/60 border border-black backdrop-blur-md shadow-lg p-6 md:p-8 hover:bg-white/20 transition-colors group"
               >
-                <div className="h-full flex flex-col justify-between">
+                <Image
+                  src="/paper-texture.jpg"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                  quality={90}
+                  priority
+                />
+                <div className="relative z-10 h-full flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl md:text-2xl font-cormorant text-black mb-4 group-hover:text-maroon transition-colors">
                       &ldquo;{item.title}&rdquo;

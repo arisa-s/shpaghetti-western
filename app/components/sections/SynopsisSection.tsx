@@ -11,17 +11,17 @@ export default function SynopsisSection() {
         alt=""
         width={1920}
         height={1080}
-        className="w-1/2 hidden md:block"
+        className="w-1/3 lg:w-1/2 hidden md:block"
       />
 
       {/* Content — right half (full width on mobile when image hidden) */}
-      <div className="flex flex-col justify-center relative z-10 gap-12 w-full md:w-1/2">
+      <div className="flex flex-col justify-center relative z-10 gap-12 w-full sm:w-1/2">
         <div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-cormorant font-bold text-green-superlight tracking-tight">
+          <h2 className="text-4xl md:text-4xl lg:text-7xl font-cormorant font-bold text-green-superlight tracking-tight">
             Synopsis
           </h2>
         </div>
-        <p className="text-justify  sm:text-xl max-w-2xl ml-auto text-green-light font-sf leading-relaxed">
+        <p className="text-justify md:text-xl max-w-2xl ml-auto text-green-light font-sf leading-relaxed">
           The film, set in 1881, follows the story of Elena Fardella who leaves
           Sicily with her hapless husband, Lorenzo, and his dreams of finding
           fame and fortune in the American West. Day One, Lorenzo dies in a

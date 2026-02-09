@@ -13,8 +13,8 @@ interface NavLinkProps {
 // Helper function to get text color classes based on hero section state
 function getTextColorClasses(isInHeroSection: boolean): string {
   return isInHeroSection
-    ? "text-white hover:text-white/80"
-    : "text-gray-700 hover:text-gray-900";
+    ? "text-deep-green hover:text-deep-green/80"
+    : "text-deep-green hover:text-deep-green/80";
 }
 
 function NavLink({
@@ -55,10 +55,10 @@ export default function NavHeader() {
   const navItems: NavItem[] = [
     { id: "synopsis", label: "Synopsis" },
     { id: "vision", label: "Vision" },
-    { id: "investment", label: "Investment" },
+    // { id: "investment", label: "Investment" },
     { id: "team", label: "Team" },
-    { id: "press", label: "Press" },
-    { id: "contact", label: "Contact" },
+    // { id: "press", label: "Press" },
+    // { id: "contact", label: "Contact" },
   ];
 
   // Define which sections have dedicated pages (only vision and investment)
@@ -153,40 +153,24 @@ export default function NavHeader() {
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-8 py-3">
         <div className="flex items-center justify-between">
-          <div className="md:hidden w-6"></div>
-          {/* Logo - only show when scrolled or not on homepage */}
-          {!isInHeroSection && (
-            <button
-              onClick={handleLogoClick}
-              className="text-lg md:text-xl font-cormorant font-bold text-gray-900 hover:text-gray-700 transition-colors uppercase"
-            >
-              Spaghetti Western
-            </button>
-          )}
-
-          {/* Spacer when logo is hidden to keep nav centered */}
-          {isInHeroSection && <div />}
-
-          {/* Desktop Navigation */}
-          <ul
-            className={`hidden md:flex gap-4 lg:gap-6 items-center ${isInHeroSection ? "mx-auto" : ""}`}
+          {/* Spacer when logo hidden (in hero); logo on left when scrolled */}
+          {/* {isInHeroSection ? (
+            <div className="w-6" />
+          ) : ( */}
+          <button
+            onClick={handleLogoClick}
+            className="text-lg md:text-xl font-cormorant font-bold text-deep-green transition-colors uppercase"
           >
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <NavLink
-                  label={item.label}
-                  onClick={() => handleNavigation(item.id)}
-                  isInHeroSection={isInHeroSection}
-                />
-              </li>
-            ))}
-          </ul>
+            Spaghetti Western
+          </button>
+          {/* )} */}
 
-          {/* Mobile Menu Button */}
+          {/* Menu button - same on mobile and desktop */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 transition-colors ${getTextColorClasses(isInHeroSection)}`}
-            aria-label="Toggle menu"
+            className={`p-2 transition-colors ${getTextColorClasses(isInHeroSection)}`}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             <svg
               className="w-5 h-5"
@@ -206,9 +190,9 @@ export default function NavHeader() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Navigation links - same dropdown for mobile and desktop when menu open */}
         {isMobileMenuOpen && (
-          <ul className="md:hidden mt-4 space-y-2 pb-4">
+          <ul className="mt-4 space-y-2 pb-4">
             {navItems.map((item) => (
               <li key={item.id}>
                 <NavLink

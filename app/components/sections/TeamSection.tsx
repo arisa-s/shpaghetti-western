@@ -57,14 +57,16 @@ export default function TeamSection() {
   return (
     <section
       id="team"
-      className="relative min-h-screen flex items-center justify-center py-12 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 bg-sandy-yellow"
+      className="relative min-h-screen flex items-center justify-center py-12 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 bg-deep-green"
     >
       <div className="max-w-5xl w-full">
-        <SectionTitle className="mb-10 sm:mb-16 text-maroon">Team</SectionTitle>
+        <SectionTitle className="mb-10 sm:mb-16 text-green-superlight">
+          Team
+        </SectionTitle>
 
         {/* Director — featured with headshot */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start mb-16 sm:mb-24">
-          <div className="shrink-0 w-full max-w-sm md:max-w-xs aspect-3/4 relative rounded overflow-hidden border-2 border-maroon/30 shadow-xl">
+          <div className="shrink-0 w-full max-w-sm md:max-w-xs aspect-3/4 relative rounded overflow-hidden border-2 border-green-superlight/30 shadow-xl">
             <Image
               src={director.imageSrc!}
               alt={director.name}
@@ -75,13 +77,13 @@ export default function TeamSection() {
             />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs uppercase tracking-widest text-maroon/80 mb-1">
+            <p className="text-xs uppercase tracking-widest text-green-superlight/80 mb-1">
               {director.role}
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-maroon mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-green-superlight mb-4">
               {director.name}
             </h2>
-            <p className="text-sm sm:text-base text-black/90 leading-relaxed mb-4">
+            <p className="text-sm sm:text-base text-green-superlight leading-relaxed mb-4">
               {bioOpen
                 ? director.description
                 : director.description.slice(0, 320) + "…"}
@@ -89,7 +91,7 @@ export default function TeamSection() {
             <button
               type="button"
               onClick={() => setBioOpen((prev) => !prev)}
-              className="text-sm font-sf uppercase tracking-widest text-maroon hover:underline"
+              className="text-sm font-sf uppercase tracking-widest text-green-superlight hover:text-maroon transition-colors"
             >
               {bioOpen ? "Show less" : "Read full bio"}
             </button>
@@ -97,8 +99,8 @@ export default function TeamSection() {
         </div>
 
         {/* Other team — compact list */}
-        <div className="border-t border-black/10 pt-8">
-          <p className="text-xs uppercase tracking-widest text-black/50 mb-4">
+        <div className="border-t border-green-superlight/20 pt-8">
+          <p className="text-xs uppercase tracking-widest text-green-superlight/50 mb-4">
             Also with
           </p>
           <ul className="flex flex-wrap gap-x-8 gap-y-3 sm:gap-y-4">
@@ -109,10 +111,10 @@ export default function TeamSection() {
                   onClick={() => setActiveMember(member)}
                   className="text-left group"
                 >
-                  <span className="font-cormorant font-semibold text-black group-hover:text-maroon transition-colors">
+                  <span className="font-cormorant font-semibold text-green-superlight group-hover:text-maroon transition-colors">
                     {member.name}
                   </span>
-                  <span className="text-black/60 text-sm ml-1.5 group-hover:text-black/80">
+                  <span className="text-green-superlight/70 text-sm ml-1.5 group-hover:text-green-superlight">
                     — {member.role}
                   </span>
                 </button>
@@ -139,13 +141,13 @@ export default function TeamSection() {
                 ✕
               </button>
               <div className="overflow-y-auto p-6 md:p-10">
-                <p className="text-xs uppercase tracking-widest text-maroon/80 mb-1">
+                <p className="text-xs uppercase tracking-widest text-deep-green/70 mb-1">
                   {activeMember.role}
                 </p>
-                <h3 className="text-2xl font-cormorant font-bold text-black mb-4">
+                <h3 className="text-2xl font-cormorant font-bold text-deep-green mb-4">
                   {activeMember.name}
                 </h3>
-                <p className="text-sm md:text-base leading-relaxed whitespace-pre-line text-black">
+                <p className="text-sm md:text-base leading-relaxed whitespace-pre-line text-deep-green">
                   {activeMember.description}
                 </p>
               </div>

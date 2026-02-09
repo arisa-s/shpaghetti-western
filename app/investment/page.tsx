@@ -3,10 +3,11 @@ import SwPageWrapper from "../../components/SwPageWrapper";
 import SwHeader from "../../components/SwHeader";
 import PageSection from "@/components/PageSection";
 import QuoteBlock from "@/components/QuoteBlock";
+import Image from "next/image";
 
 export default function Investment() {
   return (
-    <>
+    <div>
       <NavHeader />
       <SwPageWrapper>
         <div className="space-y-8 font-sf">
@@ -91,6 +92,6 @@ export default function Investment() {
           </PageSection>
         </div>
       </SwPageWrapper>
-    </>
+    </div>
   );
 }

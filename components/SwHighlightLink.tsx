@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+  useCallback,
+} from "react";
 
 interface SwHighlightLinkProps {
   children: React.ReactNode;
@@ -14,8 +20,8 @@ interface LineInfo {
   top: number;
 }
 
-export default function SwHighlightLink({ 
-  children, 
+export default function SwHighlightLink({
+  children,
   className = "",
   lineDelay = 100,
   onAnimationComplete,
@@ -59,7 +65,7 @@ export default function SwHighlightLink({
     wordSpans.forEach((span, index) => {
       const rect = span.getBoundingClientRect();
       const top = Math.round(rect.top);
-      
+
       if (!lineMap.has(top)) {
         lineMap.set(top, []);
       }
@@ -95,7 +101,7 @@ export default function SwHighlightLink({
       {
         threshold: 0.5,
         rootMargin: "0px",
-      }
+      },
     );
 
     observer.observe(element);
@@ -107,24 +113,30 @@ export default function SwHighlightLink({
   useEffect(() => {
     if (isVisible && lines.length > 0) {
       const timers: NodeJS.Timeout[] = [];
-      
+
       lines.forEach((_, index) => {
-        const timer = setTimeout(() => {
-          setAnimatedLines((prev) => [...prev, index]);
-        }, 50 + index * lineDelay);
+        const timer = setTimeout(
+          () => {
+            setAnimatedLines((prev) => [...prev, index]);
+          },
+          50 + index * lineDelay,
+        );
         timers.push(timer);
       });
 
       // Call onAnimationComplete after all lines are animated
       // Add 500ms for the last line's animation duration
       if (onAnimationComplete) {
-        const completeTimer = setTimeout(() => {
-          onAnimationComplete();
-        }, 50 + (lines.length - 1) * lineDelay + 150);
+        const completeTimer = setTimeout(
+          () => {
+            onAnimationComplete();
+          },
+          50 + (lines.length - 1) * lineDelay + 150,
+        );
         timers.push(completeTimer);
       }
-      
-      return () => timers.forEach(timer => clearTimeout(timer));
+
+      return () => timers.forEach((timer) => clearTimeout(timer));
     }
   }, [isVisible, lines, lineDelay, onAnimationComplete]);
 
@@ -152,8 +164,11 @@ export default function SwHighlightLink({
             key={lineIndex}
             className="relative inline"
             style={{
-              backgroundImage: "linear-gradient(to right, var(--maroon), var(--maroon))",
-              backgroundSize: animatedLines.includes(lineIndex) ? "100% 100%" : "0% 100%",
+              backgroundImage:
+                "linear-gradient(to right, var(--maroon), var(--maroon))",
+              backgroundSize: animatedLines.includes(lineIndex)
+                ? "100% 100%"
+                : "0% 100%",
               backgroundPosition: "left",
               backgroundRepeat: "no-repeat",
               transition: "background-size 0.15s ease-out",
@@ -166,7 +181,7 @@ export default function SwHighlightLink({
             <span
               className="relative z-10 transition-all duration-150 ease-out"
               style={{
-                color: animatedLines.includes(lineIndex) ? "var(--sandy-yellow)" : "black",
+                color: animatedLines.includes(lineIndex) ? "white" : "black",
                 transform: isHovered ? "scale(1.02)" : "scale(1)",
                 transformOrigin: "left center",
               }}
@@ -183,4 +198,3 @@ export default function SwHighlightLink({
     </span>
   );
 }
-

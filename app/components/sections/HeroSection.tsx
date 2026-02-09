@@ -10,25 +10,25 @@ export default function HeroSection() {
     >
       {/* Full-bleed cinematic background */}
       <Image
-        src="/ugly/SPAGHETTI WESTERN.png"
+        src="/ugly/SPAGHETTI WESTERN.jpg"
         alt="Spaghetti Western"
         fill
         className="object-cover object-center"
         priority
       />
+
       <div className="absolute inset-0 bg-black/40" aria-hidden />
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-8 text-center max-w-5xl">
-        <h1 className="text-4xl md:text-6xl lg:text-8xl leading-tight tracking-wider text-white font-cormorant font-bold drop-shadow-2xl">
+      <div className="relative z-10 flex flex-col gap-8 text-center max-w-5xl">
+        <h1 className="mt-72 text-4xl md:text-6xl lg:text-8xl leading-tight tracking-wider text-[#ccc8b4] font-cormorant font-bold drop-shadow-2xl">
           Spaghetti Western
         </h1>
-
-        <p className="font-normal leading-relaxed tracking-widest text-white font-sf drop-shadow-lg text-lg md:text-xl">
+        <p className="font-normal leading-relaxed tracking-widest text-[#ccc8b4] font-sf drop-shadow-lg text-lg md:text-xl">
           A Female-Driven,
           <br /> Delicious Wild West Adventure
         </p>
 
-        <div className="min-h-[80px] flex items-center justify-center">
+        {/* <div className="min-h-[80px] flex items-center justify-center">
           <SwTypewriter
             words={["Sun-baked.", "Lawless.", "Unapologetic."]}
             typingSpeed={100}
@@ -37,14 +37,14 @@ export default function HeroSection() {
             delayAfterLastWord={4000}
             className="font-normal leading-relaxed tracking-widest text-white font-sf drop-shadow-lg"
           />
-        </div>
+        </div> */}
 
-        <Link
+        {/* <Link
           href="/investment"
           className="mt-4 cursor-pointer inline-block bg-maroon text-white font-sf uppercase tracking-widest text-sm px-8 py-4 hover:bg-maroon/90 transition-colors drop-shadow-lg"
         >
           Invest
-        </Link>
+        </Link> */}
       </div>
     </section>
   );
