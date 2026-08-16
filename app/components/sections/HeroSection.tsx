@@ -1,5 +1,4 @@
 import SwTypewriter from "@/components/SwTypewriter";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -8,44 +7,31 @@ export default function HeroSection() {
       id="hero"
       className="fixed inset-0 z-0 min-h-screen flex items-center justify-center py-32 px-8 overflow-hidden"
     >
-      {/* Full-bleed cinematic background */}
-      <Image
-        src="/ugly/SPAGHETTI WESTERN.jpg"
-        alt="Spaghetti Western"
-        fill
-        className="object-cover object-center"
-        priority
-      />
+      {/* 16:9 poster — top-aligned so title and fire stay in frame on every width */}
+      <div className="absolute inset-x-0 top-0 aspect-video max-h-screen">
+        <picture className="absolute inset-0 block h-full w-full">
+          <source srcSet="/images/hero.avif" type="image/avif" />
+          <source
+            srcSet="/images/hero.webp 1280w, /images/hero.webp 2560w"
+            sizes="100vw"
+            type="image/webp"
+          />
+          <img
+            src="/images/hero.webp"
+            alt="Spaghetti Western illustrated poster with a rider on horseback overlooking a burning town."
+            width={2560}
+            height={1680}
+            sizes="100vw"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="h-full w-full object-cover object-top"
+          />
+        </picture>
+      </div>
 
       <div className="absolute inset-0 bg-black/40" aria-hidden />
       {/* Content */}
-      <div className="relative z-10 flex flex-col gap-8 text-center max-w-5xl">
-        <h1 className="mt-72 text-4xl md:text-6xl lg:text-8xl leading-tight tracking-wider text-[#ccc8b4] font-cormorant font-bold drop-shadow-2xl">
-          Spaghetti Western
-        </h1>
-        <p className="font-normal leading-relaxed tracking-widest text-[#ccc8b4] font-sf drop-shadow-lg text-lg md:text-xl">
-          A Female-Driven,
-          <br /> Delicious Wild West Adventure
-        </p>
-
-        {/* <div className="min-h-[80px] flex items-center justify-center">
-          <SwTypewriter
-            words={["Sun-baked.", "Lawless.", "Unapologetic."]}
-            typingSpeed={100}
-            deletingSpeed={80}
-            delayBetweenWords={2000}
-            delayAfterLastWord={4000}
-            className="font-normal leading-relaxed tracking-widest text-white font-sf drop-shadow-lg"
-          />
-        </div> */}
-
-        {/* <Link
-          href="/investment"
-          className="mt-4 cursor-pointer inline-block bg-maroon text-white font-sf uppercase tracking-widest text-sm px-8 py-4 hover:bg-maroon/90 transition-colors drop-shadow-lg"
-        >
-          Invest
-        </Link> */}
-      </div>
     </section>
   );
 }

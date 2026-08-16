@@ -7,10 +7,11 @@ export default function SynopsisSection() {
       className="bg-deep-green space-x-12 relative min-h-screen flex items-center justify-center py-32 px-6 sm:px-8 md:px-16 lg:px-24 overflow-hidden"
     >
       <Image
-        src="/ugly/SPAGHETTI WESTERN.png"
-        alt=""
-        width={1920}
-        height={1080}
+        src="/images/spaghetti-western-hero-2560.jpg"
+        alt="Spaghetti Western illustrated poster with a rider on horseback overlooking a burning town."
+        width={2560}
+        height={1440}
+        sizes="(min-width: 1024px) 50vw, 33vw"
         className="w-1/3 lg:w-1/2 hidden md:block"
       />
 
