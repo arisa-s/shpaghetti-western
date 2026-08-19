@@ -5,19 +5,30 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="fixed inset-0 z-0 min-h-screen flex items-center justify-center py-32 px-8 overflow-hidden"
+      className="fixed inset-0 z-0 h-dvh min-h-dvh w-full flex items-center justify-center overflow-hidden"
     >
-      {/* 16:9 poster — top-aligned so title and fire stay in frame on every width */}
-      <div className="absolute inset-x-0 top-0 aspect-video max-h-screen">
+      {/* Full-viewport poster */}
+      <div className="absolute inset-0">
         <picture className="absolute inset-0 block h-full w-full">
-          <source srcSet="/images/hero.avif" type="image/avif" />
           <source
-            srcSet="/images/hero.webp 1280w, /images/hero.webp 2560w"
-            sizes="100vw"
+            media="(max-width: 767px)"
+            srcSet="/images/hero-mobile.avif"
+            type="image/avif"
+          />
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/hero-mobile.webp"
             type="image/webp"
           />
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/hero-mobile.jpg"
+            type="image/jpeg"
+          />
+          <source srcSet="/images/hero.avif" type="image/avif" />
+          <source srcSet="/images/hero.webp" type="image/webp" />
           <img
-            src="/images/hero.webp"
+            src="/images/hero.jpg"
             alt="Spaghetti Western illustrated poster with a rider on horseback overlooking a burning town."
             width={2560}
             height={1680}
@@ -25,7 +36,7 @@ export default function HeroSection() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="h-full w-full object-cover object-top"
+            className="h-full w-full object-cover object-center md:object-top"
           />
         </picture>
       </div>
